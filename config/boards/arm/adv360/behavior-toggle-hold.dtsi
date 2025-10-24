@@ -1,0 +1,20 @@
+/ {
+    behaviors {
+        toggle_hold: behavior_toggle_hold {
+            compatible = "zmk,behavior-macro";
+            label = "TOGGLE_HOLD";
+            #binding-cells = <0>;
+            bindings = <
+                &macro_tap {
+                    bindings = <
+                        &if (&is_active_layer 1)
+                            &layer_move 0
+                        &else
+                            &layer_move 1
+                        &endif
+                    >;
+                }
+            >;
+        };
+    };
+};
